@@ -6,7 +6,7 @@ export default class ProductModel {
   connection = connection;
 
   async insert(product: IProduct): Promise<IProductId> {
-    const sql = 'INSERT INTO Products (name, amount) VALUES (?,?)';
+    const sql = 'INSERT INTO Trybesmith.Products (name, amount) VALUES (?,?)';
 
     const [{ insertId }] = await this.connection
       .execute<ResultSetHeader>(sql, [product.name, product.amount]);
@@ -20,7 +20,7 @@ export default class ProductModel {
   }
 
   async getAll(): Promise<IProductId[]> {
-    const sql = 'SELECT * FROM Products';
+    const sql = 'SELECT * FROM Trybesmith.Products';
 
     const [result] = await this.connection.execute<IProductId[] & RowDataPacket[]>(sql);
 
