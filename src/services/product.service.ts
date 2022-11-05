@@ -1,4 +1,3 @@
-// import Joi from 'joi';
 import { IProduct } from '../interfaces/product.interface';
 import ProductModel from '../models/product.model';
 
