@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 import { IUser } from '../interfaces/user.interface';
-import UserModel from '../models/user.models';
+import UserModel from '../models/user.model';
 
 export default class UserService {
   userModel = new UserModel();
