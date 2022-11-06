@@ -19,6 +19,14 @@ export default class ProductModel {
     return newProduct;
   }
 
+  async update(id: number, orders: number[]): Promise<void> {
+    const items = orders.map((_item) => '?').join();
+    const sql = `UPDATE Trybesmith.Products SET orderId=? WHERE id IN (${items})`;
+    
+    await this.connection
+      .execute<ResultSetHeader>(sql, [id, ...orders]);
+  }
+
   async getAll(): Promise<IProductId[]> {
     const sql = 'SELECT * FROM Trybesmith.Products';
 

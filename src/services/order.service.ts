@@ -4,8 +4,14 @@ export default class OrderService {
   orderModel = new OrderModel();
 
   async getAll() {
-    const products = await this.orderModel.getAll();
+    const orders = await this.orderModel.getAll();
 
-    return products;
+    return orders;
+  }
+
+  async insert(userId: number) {
+    const newOrder = await this.orderModel.insert(userId);
+
+    return newOrder;
   }
 }
